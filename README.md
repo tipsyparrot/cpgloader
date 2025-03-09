@@ -1,6 +1,6 @@
 This project is meant for creating an easy way for loading and playing Club Penguin files.
 
-The goal is to allow downloading a game's assets and running them as-is, with no modification of the original files as much as possible (e.g. security check removal, insertion of shells, adding player data, etc.), while only having to run [`loader.swf`](./loader.swf)
+The goal is to allow downloading a game's assets and running them as-is, with no modification of the original files as much as possible (e.g. security check removal, insertion of shells, adding player data, etc.), while only having to run [`loader.swf`](./src/loader.swf)
 
 # To-do List
 - Implement stamps
@@ -8,7 +8,7 @@ The goal is to allow downloading a game's assets and running them as-is, with no
 
 # How to use
 ## Downloading game files
-First, download the full game's directory and its associated sub directories, as can be found in [solero's archive](https://icerink.solero.me/media1.clubpenguin.com/play/v2/games/). Save under [games](./games).
+First, download the full game's directory and its associated sub directories, as can be found in [solero's archive](https://icerink.solero.me/media1.clubpenguin.com/play/v2/games/). Save under [src/games](./src/games).
 
 For instance, in the case of Astro Barrier, the file structure would be:
 ```
@@ -25,7 +25,7 @@ src
 > **Note:** it's okay to skip language folders that you're not going to use. In this example, only the `lang/en/` folder is used.
 
 ## Updating settings
-Edit [settings.json](./settings.json), and update the game's property name, as featured in [games.json](./src/json/games.json) (e.g., for Astro Barrier, it's `"astro"`).
+Edit [src/settings.json](./src/settings.json), and update the game's property name, as featured in [src/src/games.json](./src/src/json/games.json) (e.g., for Astro Barrier, it's `"astro"`).
 
 ### Settings
 ### `my_game`
