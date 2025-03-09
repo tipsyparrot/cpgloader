@@ -1,0 +1,12 @@
+{
+	"my_game": "aqua",
+	"myPlayer": {
+		"Colour": 12,
+		"Hand": 751
+	},
+	"custom": {
+		"stamps": {
+			"unlockAll": true
+		}
+	}
+}
