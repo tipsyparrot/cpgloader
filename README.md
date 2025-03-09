@@ -5,6 +5,7 @@ The goal is to allow downloading a game's assets and running them as-is, with no
 # To-do List
 - Implement stamps
 - `lang` in settings
+- get rid of the `src/src` folder. maybe just move the `.scripts` and `json` folders up and delete this inner abomination
 
 # How to use
 ## Downloading game files
