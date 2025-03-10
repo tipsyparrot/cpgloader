@@ -77,7 +77,7 @@ function init(container) {
 		// add music object for files that require it
 		setupMusicLayer(container);
 		// load games.json file
-		loadJSON("src/json/games.json", function(data) {
+		loadJSON("json/games.json", function(data) {
 			// get the game object by its property name from the settings
 			var gameName = settings.my_game;
 			var gameData = data[gameName];

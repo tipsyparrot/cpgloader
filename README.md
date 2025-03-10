@@ -5,7 +5,6 @@ The goal is to allow downloading a game's assets and running them as-is, with no
 # To-do List
 - Implement stamps
 - `lang` in settings
-- get rid of the `src/src` folder. maybe just move the `.scripts` and `json` folders up and delete this inner abomination
 
 # How to use
 ## Downloading game files
@@ -26,7 +25,7 @@ src
 > **Note:** it's okay to skip language folders that you're not going to use. In this example, only the `lang/en/` folder is used.
 
 ## Updating settings
-Edit [src/settings.json](./src/settings.json), and update the game's property name, as featured in [src/src/games.json](./src/src/json/games.json) (e.g., for Astro Barrier, it's `"astro"`).
+Edit [src/settings.json](./src/settings.json), and update the game's property name, as featured in [src/json/games.json](./src/json/games.json) (e.g., for Astro Barrier, it's `"astro"`).
 
 ### Settings
 ### `my_game`

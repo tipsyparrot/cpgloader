@@ -1,5 +1,6 @@
 {
 	"my_game": "aqua",
+	"lang": "en",
 	"myPlayer": {
 		"Colour": 12,
 		"Hand": 751
