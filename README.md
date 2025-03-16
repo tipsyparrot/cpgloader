@@ -66,8 +66,11 @@ A way to have certain stamps unlocked before the game launches. Some games may r
 
 `unlockIds` and `unlockByGame` can be used together, but these settings are ignored if `unlockAll` is `true`.
 
-# Game notes
+> **Notice:** each game instance assumes that the player only stars with whichever stamps are unlocked through the settings. If a stamp is unlocked mid-game, it will be remembered for the current session, so if you wish to have certain stamps unlocked, update your `settings.json` file.
 
+# Game notes
+## Aqua Grabber (`sub`)
+The level select screen checks for unlocked stamps to see if the player has completed the special goals in Clam Waters and Soda Seas. Unlock the game's stamps through the settings to have all modes unlocked upon launch.
 
 # Modified classes
 `loader.swf` incorporates some classes with dependencies, some of which have been modified:
