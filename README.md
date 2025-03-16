@@ -3,8 +3,9 @@ This project is meant for creating an easy way for loading and playing Club Peng
 The goal is to allow downloading a game's assets and running them as-is, with no modification of the original files as much as possible (e.g. security check removal, insertion of shells, adding player data, etc.), while only having to run [`loader.swf`](./src/loader.swf)
 
 # To-do List
-- Implement stamps
+- Implement stamps unlockling via `settings.json`
 - `lang` in settings
+- add scroll bar to debug window
 
 # How to use
 ## Downloading game files
@@ -62,6 +63,3 @@ For `myPlayer.Colour`, the color ID represents its ID from [player_colors.json](
 - `helper.Console`- a custom class for creating a visual logger
 - `com.clubpenguin.shell.FakeShell`- takes the main bare minimum functionality from `/play/v2/client/shell.swf`, and modifies some of its retrun values.
 - `com.clubpenguin.security.Security`- removed the entire class body, and changed the static `com.clubpenguin.security.Security.doSecurityCheck` method to always returns `true`;
-
-# HELP
-In `aqua`, `games/sub/level2/misc/shippartL2_2.swf` doesn't exist in the archives??? I had something similar in `jetpack`. For now, copied `games/sub/level2/misc/shippartL2_1.swf` and renamed.
