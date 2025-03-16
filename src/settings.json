@@ -5,9 +5,31 @@
 		"Colour": 12,
 		"Hand": 751
 	},
-	"custom": {
-		"stamps": {
-			"unlockAll": true
+	"stamps": {
+		"unlockAll": false,
+		"unlockIds": [],
+		"unlockByGame": {
+			"Aqua Grabber": true,
+			"Astro Barrier": false,
+			"Card-Jitsu": false,
+			"Card-Jitsu : Fire": false,
+			"Card-Jitsu : Snow": false,
+			"Card-Jitsu : Water": false,
+			"Cart Surfer": false,
+			"Catchin' Waves": false,
+			"Game Day": false,
+			"Ice Fishing": false,
+			"Jet Pack Adventure": false,
+			"Missions": false,
+			"Pizzatron 3000": false,
+			"Puffle Launch": false,
+			"Puffle Rescue": false,
+			"Pufflescape": false,
+			"Smoothie Smash": false,
+			"System Defender": false,
+			"Thin Ice": false,
+			"Treasure Hunt": false,
+			"Video Games": false
 		}
 	}
 }

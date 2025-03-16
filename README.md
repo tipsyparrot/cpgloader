@@ -3,8 +3,8 @@ This project is meant for creating an easy way for loading and playing Club Peng
 The goal is to allow downloading a game's assets and running them as-is, with no modification of the original files as much as possible (e.g. security check removal, insertion of shells, adding player data, etc.), while only having to run [`loader.swf`](./src/loader.swf)
 
 # To-do List
-- Implement stamps unlockling via `settings.json`
-- `lang` in settings
+- fix `stamps.unlockAll` in `settings.json`- causes an infinite loop
+- implement `lang` in settings
 - add scroll bar to debug window
 
 # How to use
@@ -36,7 +36,7 @@ An object representing the penguin's clothing items. `myPlayer.<Type>` correspon
 
 For `myPlayer.Colour`, the color ID represents its ID from [player_colors.json](https://web.archive.org/web/20170329041807if_/media1.clubpenguin.com/play/en/web_service/game_configs/player_colors.json) (see the [color reference](#color-reference) below).
 
-## Color reference
+#### Color reference
 |ID|HEX|Name|
 |-|-|-|
 |0|0x003366|Blue|
@@ -58,8 +58,20 @@ For `myPlayer.Colour`, the color ID represents its ID from [player_colors.json](
 |16|0xf0f0d8|Arctic White|
 |17|0xc378d0|Dot Lavender|
 
+### `stamps`
+A way to have certain stamps unlocked before the game launches. Some games may rely on whether or not the player owns certain stamps:
+- `stamps.unlockAll`: set to `true` to unlock all stamps (overrides all other stamp settings)
+- `stamps.unlockIds`: stamp IDs can be manually specified here to unlock them
+- `stamps.unlockByGame`: unlocks all stamps from games if their value is `true`
+
+`unlockIds` and `unlockByGame` can be used together, but these settings are ignored if `unlockAll` is `true`.
+
+# Game notes
+
+
 # Modified classes
 `loader.swf` incorporates some classes with dependencies, some of which have been modified:
 - `helper.Console`- a custom class for creating a visual logger
 - `com.clubpenguin.shell.FakeShell`- takes the main bare minimum functionality from `/play/v2/client/shell.swf`, and modifies some of its retrun values.
-- `com.clubpenguin.security.Security`- removed the entire class body, and changed the static `com.clubpenguin.security.Security.doSecurityCheck` method to always returns `true`;
+- `com.clubpenguin.stamps.FakeStampManager`- a more minimal and more optimized version of the original `com.clubpenguin.stamps.StampManager` class.
+- `com.clubpenguin.security.Security`- removed the entire class body, and changed the static `com.clubpenguin.security.Security.doSecurityCheck` method to always returns `true`.

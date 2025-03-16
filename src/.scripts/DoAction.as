@@ -22,6 +22,49 @@ function loadAS3Game(container, file, cb) {
 	hybridLoader.loadClip(file, container);
 }
 */
+function applyCustomSettings(container, settings) {
+	// stamps
+	applyCustomSettingsStamps(container, settings);
+}
+function applyCustomSettingsStamps(container, settings) {
+	var shell = _global.getCurrentShell();
+	var stamps = settings.stamps;
+	// check unlockAll setting
+	if (stamps.unlockAll) {
+		for (var id in shell.stampManager._allStamps) {
+			console.log("unlocking all stamps. curr id: " + id);
+			shell.stampEarned(id);
+		}
+		// no need to process other stuff
+		return;
+	}
+	// unlock by explicit ids
+	var unlockIds = stamps.unlockIds;
+	if (unlockIds.length) {
+		var i = 0;
+		while (i < unlockIds.length) {
+			shell.stampEarned(unlockIds[i]);
+			i++;
+		}
+	}
+	// unlock by game name
+	console.log("unlock stamps by game name");
+	console.log(stamps);
+	var unlockByGame = stamps.unlockByGame;
+	for (var gameToUnlock in unlockByGame) {
+		console.log("checking game: " + gameToUnlock + ": " + unlockByGame[gameToUnlock]);
+		if (unlockByGame[gameToUnlock]) {
+			// unlock all stamps from this game
+			console.log("@@> true: unlock all stamps from " + gameToUnlock);
+			console.log("upupdiwndiwn::@@@:~" + com.clubpenguin.util.JSONParser.stringify(shell.stampManager._allActivityStamps));
+			for (var id in shell.stampManager._allActivityStamps[gameToUnlock]) {
+				console.log("unlock id: " + id);
+				shell.stampEarned(id);
+			}
+		}
+	}
+}
+
 function loadGame(container, file, cb) {
 	console.log("loadGame(): " + file);
 	var listener = new Object();
@@ -72,7 +115,6 @@ function rearrangeLayout(container) {
 }
 
 function init(container) {
-	ppconsole.log("init()");
 	// first, load settings
 	loadJSON("settings.json", function(settings) {
 		// add root objects
@@ -82,12 +124,10 @@ function init(container) {
 		// load stamps.json file
 		loadJSON("json/stamps.json", function(stampsData) {
 			var organizedStamps = com.clubpenguin.stamps.FakeStampManager.organizeStamps(stampsData);
-			console.log()
-			var sh = _global.getCurrentShell()
-			console.log("setting global stamp data. typeof global shell is: " + typeof sh);
-			console.log(typeof com.clubpenguin.stamps.FakeStampManager.organizeStamps);
-			console.log(">@" + com.clubpenguin.util.JSONParser.stringify(organizedStamps));
-			sh.stampManager.updateStampData(organizedStamps);
+			var shell = _global.getCurrentShell();
+			shell.stampManager.updateStampData(organizedStamps);
+			// done updating the shell - apply custom settings
+			applyCustomSettings(container, settings);
 			// load games.json file
 			loadJSON("json/games.json", function(gamesData) {
 				// get the game object by its property name from the settings
