@@ -6,15 +6,15 @@
 		"Hand": 751
 	},
 	"stamps": {
-		"unlockAll": false,
+		"unlockAll": true,
 		"unlockIds": [],
 		"unlockByGame": {
-			"Aqua Grabber": true,
+			"Aqua Grabber": false,
 			"Astro Barrier": false,
 			"Card-Jitsu": false,
-			"Card-Jitsu : Fire": false,
-			"Card-Jitsu : Snow": false,
-			"Card-Jitsu : Water": false,
+			"Card-Jitsu Fire": false,
+			"Card-Jitsu Snow": false,
+			"Card-Jitsu Water": false,
 			"Cart Surfer": false,
 			"Catchin' Waves": false,
 			"Game Day": false,

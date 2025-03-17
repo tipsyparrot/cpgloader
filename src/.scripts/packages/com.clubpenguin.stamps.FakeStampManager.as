@@ -46,19 +46,19 @@ class com.clubpenguin.stamps.FakeStampManager {
 	function updateStampData(organizedStampData) {
 		this._allStamps = organizedStampData.organized;
 		this._allActivityStamps = organizedStampData.activities;
-		console.log(com.clubpenguin.util.JSONParser.stringify(this._allActivityStamps));
+		//console.log(com.clubpenguin.util.JSONParser.stringify(this._allActivityStamps));
 	}
 	function stampIsOwnedByMe(id) {
-		console.log("stampIsOwnedByMe() called: " + id);
-		console.log(com.clubpenguin.util.JSONParser.stringify(this._myStamps));
+		//console.log("stampIsOwnedByMe() called: " + id);
+		//console.log(com.clubpenguin.util.JSONParser.stringify(this._myStamps));
 		var check = typeof this._myStamps[id] !== "undefined";
-		console.log(check);
+		//console.log(check);
 		return check;
 	}
 	function setRecentlyEarnedStamp(id) {
 		// var stamp = this._allStamps.byId[id];
 		var stamp = this._allStamps[id];
-		console.log("FakeStampManager instance > setRecentlyEarnedStamp(" + id + "): typeof stamp: " + stamp);
+		//console.log("FakeStampManager instance > setRecentlyEarnedStamp(" + id + "): typeof stamp: " + stamp);
 		if (stamp) {
 			this._myStamps[id] = stamp;
 		} else {

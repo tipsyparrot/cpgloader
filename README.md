@@ -6,6 +6,7 @@ The goal is to allow downloading a game's assets and running them as-is, with no
 - fix `stamps.unlockAll` in `settings.json`- causes an infinite loop
 - implement `lang` in settings
 - add scroll bar to debug window
+- support as3 games
 
 # How to use
 ## Downloading game files

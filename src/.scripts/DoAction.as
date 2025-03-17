@@ -31,9 +31,14 @@ function applyCustomSettingsStamps(container, settings) {
 	var stamps = settings.stamps;
 	// check unlockAll setting
 	if (stamps.unlockAll) {
+		var ii = 0;
 		for (var id in shell.stampManager._allStamps) {
+			if (ii > 10) {
+				break;
+			}
 			console.log("unlocking all stamps. curr id: " + id);
 			shell.stampEarned(id);
+			ii++;
 		}
 		// no need to process other stuff
 		return;
