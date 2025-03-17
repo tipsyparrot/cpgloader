@@ -1,0 +1,2 @@
+## Aqua Grabber (`sub`)
+The level select screen checks for unlocked stamps to see if the player has completed the special goals in Clam Waters and Soda Seas. Unlock the game's stamps through the settings to have all modes unlocked upon launch.
