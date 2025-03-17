@@ -31,14 +31,9 @@ function applyCustomSettingsStamps(container, settings) {
 	var stamps = settings.stamps;
 	// check unlockAll setting
 	if (stamps.unlockAll) {
-		var ii = 0;
 		for (var id in shell.stampManager._allStamps) {
-			if (ii > 10) {
-				break;
-			}
-			console.log("unlocking all stamps. curr id: " + id);
+			//console.log("unlocking all stamps. curr id: " + id);
 			shell.stampEarned(id);
-			ii++;
 		}
 		// no need to process other stuff
 		return;
@@ -53,17 +48,14 @@ function applyCustomSettingsStamps(container, settings) {
 		}
 	}
 	// unlock by game name
-	console.log("unlock stamps by game name");
-	console.log(stamps);
+	//console.log("unlock stamps by game name");
+	//console.log(stamps);
 	var unlockByGame = stamps.unlockByGame;
 	for (var gameToUnlock in unlockByGame) {
 		console.log("checking game: " + gameToUnlock + ": " + unlockByGame[gameToUnlock]);
 		if (unlockByGame[gameToUnlock]) {
 			// unlock all stamps from this game
-			console.log("@@> true: unlock all stamps from " + gameToUnlock);
-			console.log("upupdiwndiwn::@@@:~" + com.clubpenguin.util.JSONParser.stringify(shell.stampManager._allActivityStamps));
 			for (var id in shell.stampManager._allActivityStamps[gameToUnlock]) {
-				console.log("unlock id: " + id);
 				shell.stampEarned(id);
 			}
 		}
@@ -73,9 +65,6 @@ function applyCustomSettingsStamps(container, settings) {
 function loadGame(container, file, cb) {
 	console.log("loadGame(): " + file);
 	var listener = new Object();
-	listener.onLoadInit = function() {
-		console.log("@@@@@ onLoadInit");
-	}
 	listener.onLoadComplete = function(e) {
 		com.clubpenguin.util.Loader.removeEventListener(listener);
 		if (cb) {

@@ -70,7 +70,7 @@ class com.clubpenguin.shell.FakeShell {
 		return this.stampManager;
 	}
 	function stampEarned(id) {
-		console.log("shell instance > stampEarned(" + id + "): this.stampManager is " + typeof this.stampManager);
+		//console.log("shell instance > stampEarned(" + id + "): this.stampManager is " + typeof this.stampManager);
 		if (this.stampManager.stampIsOwnedByMe(id)) {
 			return;
 		}
@@ -78,8 +78,8 @@ class com.clubpenguin.shell.FakeShell {
 	}
 
 	function stampIsOwnedByMe(id) {
-		console.log("shellInstance.stampIsOwnedByMe(): " + id);
-		console.log("shellInstance stamp manager type is: " + typeof this.stampManager);
+		//console.log("shellInstance.stampIsOwnedByMe(): " + id);
+		//console.log("shellInstance stamp manager type is: " + typeof this.stampManager);
 		return this.stampManager.stampIsOwnedByMe(id);
 	}
 
