@@ -9,7 +9,7 @@ Please refer to the following docs:
 # To-do List
 - allow selection of games from menu
 - for `_global.exposedGameDir`, allow variable game dir at the path's end, for use with game selection mode
-- implement `lang` in settings
+- Remember what the `selectMenu` property in the settings is :/
 - add scroll bar to debug window
 - support as3 games
 

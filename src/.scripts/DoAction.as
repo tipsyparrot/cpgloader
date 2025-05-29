@@ -104,6 +104,7 @@ function setupRoot(container, settings) {
 	_global.SHELL = new com.clubpenguin.shell.FakeShell();
 	_global.getCurrentShell = com.clubpenguin.shell.FakeShell.getCurrentShell;
 	_global.exposedGameDir = getGameDirPath() + "games/" + settings.my_game + "/";
+	_global.playerLang = settings.lang;
 }
 
 function setupMusicLayer(container) {

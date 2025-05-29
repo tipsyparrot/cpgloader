@@ -2,6 +2,20 @@ Edit [src/settings.json](./src/settings.json), and update the game's property na
 
 # `my_game`
 The game name
+
+# `lang`
+The game's language. Can be:
+|Value|Language|
+|-|-|
+|`en`|English|
+|`pt`|Portuguese|
+|`fr`|French|
+|`es`|Spanish|
+|`de`|German|
+|`ru`|Russian|
+
+English will be used if the property is missing or has an invalid value. 
+
 # `myPlayer`
 An object representing the penguin's clothing items. `myPlayer.<Type>` corresponds to the item ID.
 

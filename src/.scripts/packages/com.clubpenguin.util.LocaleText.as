@@ -42,10 +42,15 @@ class com.clubpenguin.util.LocaleText
       {
          $useLoader = false;
       }
+      console.log("LocaleText.init() : $languageID is: " + $languageID);
       if($languageID == undefined)
       {
          $languageID = com.clubpenguin.util.LocaleText.getLocaleID();
       }
+      // override language start:
+      var langCodes = {en: 1, pt: 2, fr: 3, es: 4, de: 5, ru: 6};
+      $languageID = langCodes[_global.playerLang] || localeID;
+      // override language end
       com.clubpenguin.util.LocaleText.localeID = $languageID;
       var fileName = com.clubpenguin.util.LocaleText.getLocale(com.clubpenguin.util.LocaleText.localeID);
       com.clubpenguin.util.LocaleText.locale = com.clubpenguin.util.LocaleText.getLocale(com.clubpenguin.util.LocaleText.localeID);
