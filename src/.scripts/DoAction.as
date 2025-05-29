@@ -15,6 +15,14 @@ function loadJSON(file, cb) {
 	loader.addEventListener(com.clubpenguin.util.JSONLoader.FAIL, handler);
 	loader.load(file);
 }
+function getGameDirPath() {
+	var gameDirUrl = this._url.split("/");
+	gameDirUrl.splice(gameDirUrl.length - 1);
+	gameDirUrl = gameDirUrl.join("/");
+	console.log("gameDirUrl: " + gameDirUrl);
+	return gameDirUrl + "/";
+}
+
 /*
 function loadAS3Game(container, file, cb) {
 	var hybridLoader = new com.clubpenguin.hybrid.HybridMovieClipLoader();
@@ -74,6 +82,7 @@ function loadGame(container, file, cb) {
 	com.clubpenguin.util.Loader.addEventListener(listener);
 	// container.createEmptyMovieClip("gameLayer", container.getNextHighestDepth());
 	// com.clubpenguin.util.Loader.loadAllMovies(container.gameLayer, ["games/" + file]);
+	console.log("about to load all movies");
 	com.clubpenguin.util.Loader.loadAllMovies(container, ["games/" + file]);
 }
 
@@ -94,6 +103,7 @@ function setupRoot(container, settings) {
 	container.myPlayer = settings.myPlayer;
 	_global.SHELL = new com.clubpenguin.shell.FakeShell();
 	_global.getCurrentShell = com.clubpenguin.shell.FakeShell.getCurrentShell;
+	_global.exposedGameDir = getGameDirPath() + "games/" + settings.my_game + "/";
 }
 
 function setupMusicLayer(container) {

@@ -234,6 +234,9 @@ class com.clubpenguin.util.LocaleText
          }
          return com.clubpenguin.util.LocaleText.localeDirectoryURL;
       }*/
+
+
+
       var locationAsArray = $url.split("/");
       var directory = "";
       var i = 0;
@@ -242,7 +245,16 @@ class com.clubpenguin.util.LocaleText
          directory += locationAsArray[i] + "/";
          i++;
       }
+      // DEBUGGING START
+      if (directory.indexOf("file:///") !== 0) {
+         console.log("NOT ABSOLUTE FILE!!!!!!!" + directory);
+         console.log("updating game path:");
+         directory = _global.exposedGameDir + directory;
+         console.log("updated game path: " + directory);
+      }
+      // DEBUGGING END
       com.clubpenguin.util.LocaleText.localeDirectoryURL = directory;
+      console.log("getGameDirectory -> DIRECTORY IS: " + directory);
       return com.clubpenguin.util.LocaleText.localeDirectoryURL;
    }
    static function debugTrace($message, $priority)

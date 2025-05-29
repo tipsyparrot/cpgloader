@@ -1,6 +1,7 @@
 {
-	"my_game": "aqua",
+	"my_game": "fish",
 	"lang": "en",
+	"selectMenu": false,
 	"myPlayer": {
 		"Colour": 12,
 		"Hand": 751

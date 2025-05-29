@@ -7,7 +7,8 @@ Please refer to the following docs:
 - [Per-game notes](./doc/game_notes.md)
 
 # To-do List
-- fix `stamps.unlockAll` in `settings.json`- causes an infinite loop
+- allow selection of games from menu
+- for `_global.exposedGameDir`, allow variable game dir at the path's end, for use with game selection mode
 - implement `lang` in settings
 - add scroll bar to debug window
 - support as3 games

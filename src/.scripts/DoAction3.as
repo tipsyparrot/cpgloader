@@ -1,4 +1,3 @@
 // DoAction[3]
 // main script
-
-init(this);
+init(this); 

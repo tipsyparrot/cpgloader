@@ -12,6 +12,7 @@ class com.clubpenguin.util.Loader
    }
    static function loadAllMovies($parent, $movieLocations, $initLocaleText)
    {
+      console.log("Loading all movies: " + com.clubpenguin.util.JSONParser.stringify($movieLocations));
       if(com.clubpenguin.util.Loader.eventSource == undefined)
       {
          com.clubpenguin.util.Loader.eventSource = new Object();
@@ -55,13 +56,16 @@ class com.clubpenguin.util.Loader
    static function loadSubmovie($parent, $movieLocation, $movieNum)
    {
       com.clubpenguin.util.Loader.debugTrace("load submovie");
+      console.log("load submovie [" + $movieNum + "]: " + $movieLocation + " :: " + $parent);
       if($parent == undefined)
       {
+         console.log( $movieNum  + "'s parent is undefined");
          com.clubpenguin.util.Loader.debugTrace("cannot load movie, parent movie is undefined!",com.clubpenguin.util.Reporting.DEBUGLEVEL_ERROR);
          return undefined;
       }
       if($movieLocation == undefined)
       {
+         console.log( $movieNum  + "'s movie location is undefined");
          com.clubpenguin.util.Loader.debugTrace("cannot load movie, movie location is undefined!",com.clubpenguin.util.Reporting.DEBUGLEVEL_ERROR);
          return undefined;
       }
@@ -70,17 +74,21 @@ class com.clubpenguin.util.Loader
       var _loc2_ = new MovieClipLoader();
       _loc1_.onLoadInit = function($targetMC)
       {
+         console.log("submovie onLoadInit: " + $movieLocation);
          com.clubpenguin.util.Loader.handleLoadComplete($targetMC);
       };
       _loc1_.onLoadProgress = function($targetMC, $loadProgress, $loadTotal)
       {
+         // console.log("submovie onLoadProgress: " + $movieLocation);
          com.clubpenguin.util.Loader.handleLoadProgress($targetMC,$loadProgress,$loadTotal);
       };
       _loc1_.onLoadError = function($targetMC, $errorMessage)
       {
+         console.log("submovie onLoadError: " + $movieLocation);
          com.clubpenguin.util.Loader.debugTrace("error loading submovie: " + $errorMessage,com.clubpenguin.util.Reporting.DEBUGLEVEL_ERROR);
       };
       _loc2_.addListener(_loc1_);
+      console.log("about to load clip... " + $movieLocation);
       _loc2_.loadClip($movieLocation,_loc3_);
       com.clubpenguin.util.Loader.addProgressObject(_loc2_.getProgress(_loc3_));
    }
